@@ -16,3 +16,23 @@ Tanda tangan elektronik berbasis QR Code. Verifikasi ke suatu alamat di alamat r
 	2. Buat password baru kemudian dicatat di suatu tempat. Bcrypt password tersebut. Isi **$pass_** dengan bcrypt dari password baru tersebut.
 4. chmod **\*.php** dan **\*.ini** menjadi 0400
 5. Apabila terdapat **.htaccess** (tidak disarankan), maka chmod **.htaccess** menjadi 0444 (baca https://pdsi.unisayogya.ac.id/lebih-baik-apache2-conf-daripada-htaccess/)
+
+#### Buat QR Code
+```
+<?php
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL,"https://example.com/create");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+            "postvar1=value1&postvar2=value2&postvar3=value3");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($ch);
+
+curl_close ($ch);
+
+var_dump($response);
+
+?>
+```
