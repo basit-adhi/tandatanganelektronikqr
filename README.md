@@ -44,5 +44,4 @@ if(is_array($response))
 		echo '<img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='.urlencode($response["message"]).'&choe=UTF-8" loading="lazy" />';
 	}
 }
-?>
 ```
