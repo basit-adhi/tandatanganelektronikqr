@@ -41,7 +41,7 @@ if(is_array($response))
 	if ($response["status"] == "success")
 	{
 		//tampilkan url ke dalam bentuk QR Code dan simpan url ke dalam skema (basis data)
-		echo $response["message"];
+		echo '<img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='.urlencode($response["message"]).'&choe=UTF-8" loading="lazy" />';
 	}
 }
 ?>
