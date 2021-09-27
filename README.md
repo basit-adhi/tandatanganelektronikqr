@@ -8,8 +8,8 @@ Tanda tangan elektronik berbasis QR Code. Verifikasi ke suatu alamat di alamat r
 3. Dump tte.sql
 4. Ubah privileges menjadi DELETE,EXECUTE,INDEX,INSERT,'LOCK TABLES',SELECT,UPDATE,TRIGGER
 5. Ubah nilai yang ada pada 
-	1. *stored procedure* \_secret_passphrase dengan nilai dari https://www.avast.com/random-password-generator
-	2. *stored procedure* \_vector dengan nilai dari **select lower(concat("0x", hex(random_bytes(16)))) as new_vector**
+	1. *stored procedure* \_secret_passphrase() dengan nilai dari https://www.avast.com/random-password-generator
+	2. *stored procedure* \_vector() dengan nilai dari **select lower(concat("0x", hex(random_bytes(16)))) as new_vector**
 
 ### API
 1. Salin **\*.php** ke dalam folder yang berbeda dengan folder *web-server* lain, misalnya: /home/user/apitte
