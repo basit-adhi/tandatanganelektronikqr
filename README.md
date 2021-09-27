@@ -20,19 +20,29 @@ Tanda tangan elektronik berbasis QR Code. Verifikasi ke suatu alamat di alamat r
 #### Buat QR Code
 ```
 <?php
+$data = [	"pass" => urlencode("password sebelum di-bcrypt"), 
+		"keterangan" => urlencode("Dokumen ini ditandangani oleh Mr Fulan pada tanggal 1 Januari 2021. Perihal: Surat Kenaikan Tunjangan."), 
+		"checksum" => urlencode("")
+	];
+
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL,"https://example.com/create");
 curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,
-            "postvar1=value1&postvar2=value2&postvar3=value3");
+curl_setopt($ch, CURLOPT_POSTFIELDS, "ps=".$data["pass"]."&tx=".$data["keterangan"]."&cs=".$data["checksum"]);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-$response = curl_exec($ch);
+$response = json_decode(curl_exec($ch));
 
 curl_close ($ch);
 
-var_dump($response);
-
+if(is_array($response))
+{
+	if ($response["status"] == "success")
+	{
+		//tampilkan url ke dalam bentuk QR Code dan simpan url ke dalam skema (basis data)
+		echo $response["message"];
+	}
+}
 ?>
 ```
