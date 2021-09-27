@@ -97,7 +97,7 @@ end$$
 
 CREATE FUNCTION `_vector` () RETURNS BLOB NO SQL
 begin
-	#how to obtain: select random_bytes(16)
+	#how to obtain: select lower(concat("0x", hex(random_bytes(16)))) as new_vector
 	return  0xd70b2ba4509bd51d52ea16b8ab180a36;
 end$$
 
