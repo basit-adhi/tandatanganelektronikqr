@@ -1,7 +1,7 @@
 # tandatanganelektronikqr
 Tanda tangan elektronik berbasis QR Code. Verifikasi ke suatu alamat di alamat resmi institusi.
 
-## Instalasi
+## Instalasi (Server Side)
 ### Skema (Basis Data)
 1. Buat skema dengan user dan password berbeda dengan user skema lain
 2. Grant privileges ALL hanya untuk user tersebut ke skema baru tersebut
@@ -20,7 +20,7 @@ Tanda tangan elektronik berbasis QR Code. Verifikasi ke suatu alamat di alamat r
 4. chmod **\*.php** dan **\*.ini** menjadi 0400
 5. Apabila terdapat **.htaccess** (tidak disarankan), maka chmod **.htaccess** menjadi 0444 (baca https://pdsi.unisayogya.ac.id/lebih-baik-apache2-conf-daripada-htaccess/)
 
-#### Buat QR Code
+## Buat QR Code (Client Side)
 ```
 <?php
 $data = [	"pass" => urlencode("$pass_ di config.php sebelum di-bcrypt"), 
