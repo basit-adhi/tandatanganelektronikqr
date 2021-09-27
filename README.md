@@ -20,7 +20,7 @@ Tanda tangan elektronik berbasis QR Code. Verifikasi ke suatu alamat di alamat r
 #### Buat QR Code
 ```
 <?php
-$data = [	"pass" => urlencode("password sebelum di-bcrypt"), 
+$data = [	"pass" => urlencode("$pass_ di config.php sebelum di-bcrypt"), 
 		"keterangan" => urlencode("Dokumen ini ditandangani oleh Mr Fulan pada tanggal 1 Januari 2021. Perihal: Surat Kenaikan Tunjangan."), 
 		"checksum" => urlencode("")
 	];
