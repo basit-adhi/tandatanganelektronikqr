@@ -43,8 +43,20 @@ if(is_array($response))
 {
 	if ($response["status"] == "success")
 	{
-		//tampilkan url ke dalam bentuk QR Code dan simpan url ke dalam skema (basis data)
+		//tampilkan url ke dalam bentuk QR Code
 		echo '<img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='.urlencode($response["message"]).'&choe=UTF-8" loading="lazy" />';
+		//simpan url ke dalam skema (basis data)
+		//...
+		$stmt    = $conn->prepare("update tabel set tandatangan=? where id=?");
+		$stmt->bind_param("si", $response["message"], $primarykey);
+		$stmt->execute();
+		//...
+		//selanjutnya tinggal menggunakan tandatangan yang sudah disimpan tadi
+		//...
+		$stmt    = $conn->prepare("select tandatangan from tabel where id=?");
+		$stmt->bind_param("i", $primarykey);
+		$stmt->execute();
+		//...
 	}
 }
 ```
