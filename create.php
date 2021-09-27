@@ -37,7 +37,7 @@ if (password_verify($pass, $pass_))
         $stmt->close();
         $u = $url_."check/";
         $stmt    = $conn->prepare("select url_tte(?, ?) as urlqr");
-        $stmt->bind_param("ss", $u, $row["kdtandatanganelektronikqr"]);
+        $stmt->bind_param("si", $u, $row["kdtandatanganelektronikqr"]);
         $stmt->execute();
         $resulturl = $stmt->get_result();
         if ($resulturl->num_rows === 0)
